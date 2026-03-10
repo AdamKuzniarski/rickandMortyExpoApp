@@ -1,18 +1,18 @@
 export type Character = {
-    id: number;
+    id: number | string;
     name: string;
     image: string;
     species: string;
     status?: string;
     gender?: string;
-    origin?: {name:string};
+    origin?: { name: string };
 };
 
-export type CharacterInput ={
-    originName: string;
+export type CharacterInput = {
     name: string;
-    species: string
+    species: string;
     status?: string;
     gender?: string;
     image?: string;
-}
+    originName?: string;
+};

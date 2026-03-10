@@ -8,7 +8,6 @@ import { ListState } from "./home/components/ListState";
 import { useCharacters } from "./home/hooks/useCharacters";
 import type { HomeSearchParams } from "./home/types";
 import { normalizeQuery } from "./home/utils/query";
-import type { Character } from "./Types/Character";
 
 export default function Home() {
     const router = useRouter();
@@ -33,11 +32,15 @@ export default function Home() {
     }, [router, text]);
 
     const handleCharacterPress = useCallback(
-        (id: number) => {
+        (id: number | string) => {
             router.push(`/character/${id}`);
         },
         [router],
     );
+
+    const handleCreatePress = useCallback(() => {
+        router.push("/character/new");
+    }, [router]);
 
     return (
         <SafeAreaView className="flex-1 bg-white">
@@ -51,6 +54,7 @@ export default function Home() {
                         text={text}
                         onChangeText={setText}
                         onSubmit={handleSearchSubmit}
+                        onPressCreate={handleCreatePress}
                     />
                 }
                 renderItem={({ item }) => (

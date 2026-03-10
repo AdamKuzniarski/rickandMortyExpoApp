@@ -4,13 +4,9 @@ export type HomeSearchParams = {
     q?: string | string[];
 };
 
-export type CharacterApiResponse = {
-    results?: Character[];
-};
-
 export type CharacterListItemProps = {
     item: Character;
-    onPress: (id: number) => void;
+    onPress: (id: number | string) => void;
 };
 
 export type ListStateProps = {
@@ -19,4 +15,3 @@ export type ListStateProps = {
     hasItems: boolean;
     query: string;
 };
-
